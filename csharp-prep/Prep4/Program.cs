@@ -28,29 +28,29 @@ class Program
 
         float average = ((float)sum) / numbers.Count;
         Console.WriteLine($"The average is: {average}");
-        int max = numbers[0];
+        int largest = numbers[0];
 
         foreach (int number in numbers)
         {
-            if (number > max)
+            if (number > largest)
             {
-                max = number;
+                largest = number;
             }
         }
 
-        Console.WriteLine($"The max is: {max}");
+        Console.WriteLine($"The largest number is: {largest}");
 
         // stretch challenge
-        int min = 9999999;
+        int smallest = 9999999;
 
         foreach (int number in numbers)
         {
-            if (number < min && number > 0) {
-                min = number;
+            if (number < smallest && number > 0) {
+                smallest = number;
             }
         }
 
-        Console.WriteLine($"The smallest positive number is: {min}");
+        Console.WriteLine($"The smallest positive number is: {smallest}");
 
 
 //         #SMALLEST
