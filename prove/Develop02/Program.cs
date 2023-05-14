@@ -1,3 +1,6 @@
+// I exceeded requirements by including an authentication (sort of :) ) when a user tries to load a saved journal file.
+// The program can save in .csv too and opens in excel
+
 using System;
 
 class Program
