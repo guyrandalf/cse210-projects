@@ -2,27 +2,27 @@ using System;
 using System.IO;
 public class Entry
 {
-    public List<string> temporalEntries;
-    public string input;
-    public string date;
-    public string cleanData;    
+    public List<string> _temporalEntries;
+    public string _input;
+    public string _date;
+    public string _cleanData;    
 
 
     public string GetInput()
     {
         Console.Write(">>> ");
-        return input = Console.ReadLine();
+        return _input = Console.ReadLine();
     }
     public string GetEntryDate()
     {
         DateTime theCurrentTime = DateTime.Now;
-        return date = theCurrentTime.ToString("dd/MM/yyyy");
+        return _date = theCurrentTime.ToString("dd/MM/yyyy");
     }
     public string CleanInput()
     {
         string Trim()
         {
-            string trimmed = input.Trim();
+            string trimmed = _input.Trim();
             return trimmed;
         }
         string ToUpperCase(string trimmed)
@@ -34,16 +34,16 @@ public class Entry
             return $"{trimmed[0].ToString().ToUpper()}{trimmed.Substring(1)}";
         }
 
-        cleanData = Trim();
-        cleanData = ToUpperCase(input);
-        return cleanData;
+        _cleanData = Trim();
+        _cleanData = ToUpperCase(_input);
+        return _cleanData;
     }
 
     public void SaveEntry(string prompt)
     {
         CleanInput();
         GetEntryDate();
-        input = $"{date} - Prompt: {prompt}\n{cleanData}";
+        _input = $"{_date} - Prompt: {prompt}\n{_cleanData}";
     }
 
 }

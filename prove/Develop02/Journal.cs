@@ -3,15 +3,15 @@ using System.IO;
 
 public class Journal{
 
-    public string selectedJournal;
+    public string _selectedJournal;
 
 
     public void GetJournalName(){        
-        selectedJournal = Console.ReadLine();
+        _selectedJournal = Console.ReadLine();
     }
 
     public void GetEntries(){
-        string fileName = selectedJournal;
+        string fileName = _selectedJournal;
         string[] lines = File.ReadAllLines(fileName);
             foreach (string line in lines)
         {
@@ -20,9 +20,9 @@ public class Journal{
         }
          
     }
-    public void SaveEntry(List<string> tempEntries, string journal){
+    public void SaveEntry(List<string> _tempEntries, string journal){
         using(StreamWriter outputFile = new StreamWriter(journal))
-        foreach(string line in tempEntries){
+        foreach(string line in _tempEntries){
             {
             outputFile.WriteLine(line);
         }
