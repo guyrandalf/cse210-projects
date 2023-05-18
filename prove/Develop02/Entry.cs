@@ -1,49 +1,53 @@
 using System;
-using System.IO;
 public class Entry
 {
-    public List<string> _temporalEntries;
-    public string _input;
-    public string _date;
-    public string _cleanData;    
+    public string _prompt;
+    public DateTime _date;
+    public string _answer;
 
-
-    public string GetInput()
+    public string Prompt
     {
-        Console.Write(">>> ");
-        return _input = Console.ReadLine();
-    }
-    public string GetEntryDate()
-    {
-        DateTime theCurrentTime = DateTime.Now;
-        return _date = theCurrentTime.ToString("dd/MM/yyyy");
-    }
-    public string CleanInput()
-    {
-        string Trim()
+        get
         {
-            string trimmed = _input.Trim();
-            return trimmed;
+            return _prompt;
         }
-        string ToUpperCase(string trimmed)
-        {
-            if (string.IsNullOrEmpty(trimmed))
-            {
-                return string.Empty;
-            }
-            return $"{trimmed[0].ToString().ToUpper()}{trimmed.Substring(1)}";
-        }
-
-        _cleanData = Trim();
-        _cleanData = ToUpperCase(_input);
-        return _cleanData;
     }
 
-    public void SaveEntry(string prompt)
+    public string Answer
     {
-        CleanInput();
-        GetEntryDate();
-        _input = $"{_date} - Prompt: {prompt}\n{_cleanData}";
+        get
+        {
+            return _answer;
+        }
+    }
+
+    public DateTime Date
+    {
+        get
+        {
+            return _date;
+        }
+    }
+
+    public Entry(string prompt, string answer)
+    {
+        _prompt = prompt;
+        _answer = answer;
+        _date = DateTime.Now;
+    }
+
+    public Entry(string prompt, string answer, DateTime date)
+    {
+        _prompt = prompt;
+        _answer = answer;
+        _date = date;
+    }
+
+    public void Display()
+    {
+        Console.WriteLine($"Date: {_date.ToString("dd/MM/yyyy")} - Prompt: {_prompt}");
+        Console.WriteLine(_answer);
+        Console.WriteLine("");
     }
 
 }

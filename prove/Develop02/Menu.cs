@@ -2,7 +2,7 @@ using System;
 
 public class Menu
 {
-
+    string fileName;
     public string _choice;
 
     public void GreetUser()
@@ -27,49 +27,41 @@ public class Menu
     {
         Login login = new Login();
         Prompt prompts = new Prompt();
-        Entry entry1 = new Entry();
         Journal journals = new Journal();
-        entry1._temporalEntries = new List<string> { };
+        // entry1._temporalEntries = new List<string> { };
 
         GreetUser();
 
 
-        do
+        while (true)
         {
             GetChoice();
-            entry1._input = "";
-            prompts._selectedPrompt = "";
-            journals._selectedJournal = "";
 
             if (_choice == "1")
             {
                 prompts._prompts = new List<string> { "Who was the most interesting person I interacted with today?", "What was the best part of my day?", "How did I see the hand of the Lord in my life today?", "What was the strongest emotion I felt today?", "If I had one thing I could do over today, what would it be?", "What brought you joy today?", "What was your greatest fear, and how did you conquer it?", "Today, I am grateful for?" };
-                prompts.GetRandomPrompt();
+                string prompt = prompts.GetRandomPrompt();
                 prompts.Display();
+                string answer = Console.ReadLine();
 
-                entry1.GetInput();
-                entry1.SaveEntry(prompts._selectedPrompt);
-
-                entry1._temporalEntries.Add(entry1._input);
+                Entry entry = new Entry(prompt, answer);
+                journals.SaveEntry(entry);
             }
 
             else if (_choice == "2")
             {
-                foreach (string line in entry1._temporalEntries)
-                {
-                    Console.WriteLine(line);
-                    Console.WriteLine("");
-                }
+                journals.DisplayEntries();
             }
 
             else if (_choice == "3")
             {
                 Console.Write("Please enter the file name: ");
-                journals.GetJournalName();
+                fileName = Console.ReadLine();
+                journals.LoadEntriesFromFile(fileName);
                 login.VerifyUserPIN();
                 if (login._auth == true)
                 {
-                    journals.GetEntries();
+                    journals.LoadEntriesFromFile(fileName);
                 }
                 else
                 {
@@ -81,10 +73,19 @@ public class Menu
             else if (_choice == "4")
             {
                 Console.WriteLine("Type journal filename to save: ");
-                journals.GetJournalName();
-                journals.SaveEntry(entry1._temporalEntries, journals._selectedJournal);
+                fileName = Console.ReadLine();
+                journals.SaveInFile(fileName);
+                Console.WriteLine("Saved successfully");
+            }
+            else if (_choice == "5")
+            {
+                Console.WriteLine("Goodbye");
+            }
+            else
+            {
+                Console.WriteLine("Invalid choice. Try again.");
             }
 
-        } while (_choice != "5");
+        }
     }
 }

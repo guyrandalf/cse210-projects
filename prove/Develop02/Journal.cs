@@ -1,31 +1,51 @@
 using System;
-using System.IO;
 
-public class Journal{
+public class Journal
+{
 
-    public string _selectedJournal;
-
-
-    public void GetJournalName(){        
-        _selectedJournal = Console.ReadLine();
+    public List<Entry> _entries;
+    public Journal()
+    {
+        _entries = new List<Entry>();
     }
 
-    public void GetEntries(){
-        string fileName = _selectedJournal;
-        string[] lines = File.ReadAllLines(fileName);
-            foreach (string line in lines)
+    public void SaveEntry(Entry entry)
+    {
+        _entries.Add(entry);
+    }
+
+    public void DisplayEntries()
+    {
+        foreach (Entry entry in _entries)
         {
-            string[] parts = line.Split(",");
-            Console.WriteLine(line);
+            entry.Display();
         }
-         
     }
-    public void SaveEntry(List<string> _tempEntries, string journal){
-        using(StreamWriter outputFile = new StreamWriter(journal))
-        foreach(string line in _tempEntries){
+
+    public void SaveInFile(string fileName)
+    {
+        using (StreamWriter writer = new StreamWriter(fileName))
+        {
+            foreach (Entry entry in _entries)
             {
-            outputFile.WriteLine(line);
+                writer.WriteLine($"{entry.Prompt.Replace(",", "|||")}, {entry.Answer.Replace(",", "|||")},{entry.Date.ToString()}");
+            }
         }
+    }
+
+    public void LoadEntriesFromFile(string fileName)
+    {
+        using (StreamReader reader = new StreamReader(fileName))
+        {
+            while (!reader.EndOfStream)
+            {
+                string[] entryData = reader.ReadLine().Split(',');
+                string prompt = entryData[0].Replace("|||", ",");
+                string answer = entryData[1].Replace("|||", ",");
+                DateTime date = DateTime.Parse(entryData[2]);
+                Entry entry = new Entry(prompt, answer, date);
+                SaveEntry(entry);
+            }
         }
     }
 }
