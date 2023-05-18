@@ -8,7 +8,7 @@ public class Prompt
 
     public string GetRandomPrompt()
     {
-        var random = new Random();
+        Random random = new Random();
         int index = random.Next(_prompts.Count);
         return _prompts[index];
     }
