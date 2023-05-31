@@ -2,15 +2,16 @@ using System;
 
 public class Scripture
 {
-    public Scripture(Reference reference, string scripture)
+    public Scripture(Reference reference, string scripture, Hint hint)
     {
         _reference = reference;
         _words = CreateWordList(scripture);
+        _hint = hint;
     }
 
     private Reference _reference { get; set; }
-
     private List<Word> _words { get; set; }
+    private Hint _hint { get; set; }
     private int _difficultyLevel { get; set; }
 
     private List<Word> CreateWordList(string scripture)
@@ -69,6 +70,7 @@ public class Scripture
         {
             scripture += $" {word.GetText()}";
         }
+        scripture += _hint.GetText();
         return scripture;
     }
 
@@ -78,6 +80,6 @@ public class Scripture
         {
             if (!word.isHidden()) return false;
         }
-        return false;
+        return true;
     }
 }
