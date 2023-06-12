@@ -1,5 +1,5 @@
 using System;
-// I have added an unused question and unused prompt property to certain classes in order to avoid repeating questions and prompts during a single session. This is how I believe have exceeded requirement.
+// Defined unused question and prompt property to certain classes to avoid repitition during a single session. This is how I believe have core requirements.
 
 class Program
 {
