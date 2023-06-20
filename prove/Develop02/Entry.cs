@@ -1,4 +1,5 @@
 using System;
+
 public class Entry
 {
     public string _prompt;
@@ -7,26 +8,17 @@ public class Entry
 
     public string Prompt
     {
-        get
-        {
-            return _prompt;
-        }
+        get { return _prompt; }
     }
 
     public string Answer
     {
-        get
-        {
-            return _answer;
-        }
+        get { return _answer; }
     }
 
     public DateTime Date
     {
-        get
-        {
-            return _date;
-        }
+        get { return _date; }
     }
 
     public Entry(string prompt, string answer)
@@ -47,7 +39,5 @@ public class Entry
     {
         Console.WriteLine($"Date: {_date.ToString("dd/MM/yyyy")} - Prompt: {_prompt}");
         Console.WriteLine(_answer);
-        Console.WriteLine("");
     }
-
 }

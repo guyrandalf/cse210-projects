@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+
 
 public class Journal
 {
@@ -12,6 +14,8 @@ public class Journal
     public void SaveEntry(Entry entry)
     {
         _entries.Add(entry);
+        Console.WriteLine("Entry saved: " + entry._answer); // Print the saved entry for verification        
+
     }
 
     public void DisplayEntries()

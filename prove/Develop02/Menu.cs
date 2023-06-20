@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+
 
 public class Menu
 {
@@ -22,16 +24,13 @@ public class Menu
         _choice = Console.ReadLine();
     }
 
-
     public void ProgramEntry()
     {
         Login login = new Login();
         Prompt prompts = new Prompt();
         Journal journals = new Journal();
-        // entry1._temporalEntries = new List<string> { };
 
         GreetUser();
-
 
         while (true)
         {
@@ -47,7 +46,7 @@ public class Menu
                 Entry entry = new Entry(prompt, answer);
                 journals.SaveEntry(entry);
             }
-
+            
             else if (_choice == "2")
             {
                 journals.DisplayEntries();
@@ -57,7 +56,6 @@ public class Menu
             {
                 Console.Write("Please enter the file name: ");
                 fileName = Console.ReadLine();
-                journals.LoadEntriesFromFile(fileName);
                 login.VerifyUserPIN();
                 if (login._auth == true)
                 {
@@ -80,12 +78,12 @@ public class Menu
             else if (_choice == "5")
             {
                 Console.WriteLine("Goodbye");
+                break;
             }
             else
             {
                 Console.WriteLine("Invalid choice. Try again.");
             }
-
         }
     }
 }
