@@ -1,0 +1,4 @@
+90100
+SimpleGoal|Marathon|I want to run for 400 years nonstop|90000|True
+SimpleGoal|Marathon|I want to run for 400 years nonstop|90000|False
+EternalGoal|Eternal marriage|Marry to my wife for time and eternity|50|False
