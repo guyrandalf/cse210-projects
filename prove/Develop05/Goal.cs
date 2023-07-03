@@ -1,6 +1,6 @@
 using System;
 
-class Goal
+public class Goal
 {
     private protected string _goalTitle;
     private protected string _goalDescription;
