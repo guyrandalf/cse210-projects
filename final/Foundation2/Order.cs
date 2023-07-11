@@ -34,7 +34,7 @@ public class Order
         }
     }
 
-    public void BuildPackingSlip()
+    public void CreatePackingSlip()
     {
         string finalProduct = "";
         foreach (Product product in _productsList)
@@ -44,7 +44,7 @@ public class Order
         }
     }
 
-    public void BuildShippingSlip()
+    public void CreateShippingSlip()
     {
         Console.WriteLine(_customer.GetCustomerName());
         Console.WriteLine(_customer.GetAddress());

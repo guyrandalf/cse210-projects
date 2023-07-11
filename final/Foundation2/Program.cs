@@ -29,14 +29,14 @@ class Program
         foreach (Order order in orders)
         {
             Console.WriteLine("");
-            order.BuildPackingSlip();
+            order.CreatePackingSlip();
             Console.WriteLine("");
             Console.WriteLine($"Your shipping is: ${order.CalculateShipping()}.00");
             Console.WriteLine(
                 $"Your total is: ${Math.Round(order.CalculateTotalPrice(), 2)}"
             );
             Console.WriteLine("");
-            order.BuildShippingSlip();
+            order.CreateShippingSlip();
             Console.WriteLine("");
         }
     }
