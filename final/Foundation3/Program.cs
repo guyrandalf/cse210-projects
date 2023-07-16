@@ -72,14 +72,14 @@ class Program
             address1,
             "Outdoor",
             "cloudy"
-        );        
+        );
 
         lecturesList.Add(lecture1);
         lecturesList.Add(lecture2);
         lecturesList.Add(lecture3);
         receptionsList.Add(reception1);
         receptionsList.Add(reception2);
-        outdoorsList.Add(outdoor1);        
+        outdoorsList.Add(outdoor1);
 
         foreach (Lecture lecture in lecturesList)
         {
