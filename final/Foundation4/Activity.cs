@@ -13,13 +13,9 @@ public class Activity
         _date = date;
         _length = length;
         _activity = activity;
-
     }
 
-    public virtual void DisplaySummary()
-    {
-
-    }
+    public virtual void DisplaySummary() { }
 
     public virtual float CalculateSpeed()
     {
@@ -35,6 +31,4 @@ public class Activity
     {
         return _distance;
     }
-
-    
 }

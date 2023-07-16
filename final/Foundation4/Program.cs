@@ -13,12 +13,19 @@ class Program
         Swimming phillip = new Swimming("15/07/2023", 55, "Swimming", 14);
         Swimming sammy = new Swimming("14/07/2023", 47, "Swimming", 20);
 
-        List<Activity> activities = new List<Activity>{matt, james, scott, randalf, phillip, sammy};
+        List<Activity> activities = new List<Activity>
+        {
+            matt,
+            james,
+            scott,
+            randalf,
+            phillip,
+            sammy
+        };
 
         foreach (Activity activity in activities)
         {
             activity.DisplaySummary();
         }
-        
     }
 }

@@ -29,9 +29,9 @@ public class Event
     public void DisplayStandardDetails()
     {
         Console.WriteLine($"Event Name: {_eventTitle}");
-        Console.WriteLine($"Description? {_description}");
-        Console.WriteLine($"Time?: {_date}");
-        Console.WriteLine($"Venue?: {_address.CreateAddress()}");
+        Console.WriteLine($"Description: {_description}");
+        Console.WriteLine($"Time: {_date}");
+        Console.WriteLine($"Venue: {_address.CreateAddress()}");
     }
 
     public void DisplayShortDescription()
