@@ -15,20 +15,8 @@ public class Address
         _country = country;
     }
 
-    public string BuildAddress()
+    public string CreateAddress()
     {
         return $"{_street},\n{_city},{_state},\n{_country}";
-    }
-
-    public bool CheckCountry()
-    {
-        if (_country == "NG" || _country == "Nigeria")
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
     }
 }

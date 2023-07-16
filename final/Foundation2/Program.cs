@@ -4,7 +4,7 @@ class Program
 {
     static void Main(string[] args)
     {
-        Address address1 = new Address("IDC Area", "Ibadan", "Oyo", "Nigeria", 213342);
+        Address address1 = new Address("IDC Area", "Ibadan", "Oyo", "Nigeria");
         Customer customer1 = new Customer("John Carter", address1);
         List<Product> products1 = new List<Product>
         {
@@ -14,7 +14,7 @@ class Program
         };
         Order order1 = new Order(customer1, products1);
 
-        Address address2 = new Address("Eheneden", "Benin", "Edo", "NG", 310010);
+        Address address2 = new Address("Eheneden", "Benin", "Edo", "NG");
         Customer customer2 = new Customer("Josh Groovie", address2);
         List<Product> products2 = new List<Product>
         {
@@ -32,9 +32,7 @@ class Program
             order.CreatePackingSlip();
             Console.WriteLine("");
             Console.WriteLine($"Your shipping is: ${order.CalculateShipping()}.00");
-            Console.WriteLine(
-                $"Your total is: ${Math.Round(order.CalculateTotalPrice(), 2)}"
-            );
+            Console.WriteLine($"Your total is: ${Math.Round(order.CalculateTotalPrice(), 2)}");
             Console.WriteLine("");
             order.CreateShippingSlip();
             Console.WriteLine("");
